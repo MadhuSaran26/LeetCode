@@ -7,7 +7,6 @@ class Solution:
             adj_list[v].append(u)
         
         color = dict()
-        visited = set()
 
         def bfs(idx):
             queue = deque([idx])
