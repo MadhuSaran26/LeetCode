@@ -25,6 +25,7 @@ class Solution:
         #start from target to find the closest leaf
         queue = deque([k])
         visited = set()
+        root_val = root.val
 
         while queue:
             current = queue.popleft()
@@ -32,7 +33,7 @@ class Solution:
 
             # the first leaf node (only its parent as its neighbor) from target is the answer
             # second condition is for cases with root which has only one child which is a leaf
-            if len(graph[current]) == 1 and current != root.val:
+            if len(graph[current]) == 1 and current != root_val:
                 return current
             
             for neighbor in graph[current]:
