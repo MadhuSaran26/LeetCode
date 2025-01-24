@@ -11,17 +11,16 @@ class Solution:
         
         graph = defaultdict(list)
         
-        def buildGraph(node):
-            if node.left:
-                graph[node.val].append(node.left.val)
-                graph[node.left.val].append(node.val)
-                buildGraph(node.left)
-            if node.right:
-                graph[node.val].append(node.right.val)
-                graph[node.right.val].append(node.val)
-                buildGraph(node.right)
+        def buildGraph(node, parent=None):
+            if not node:
+                return
+            graph[node.val].append(parent.val)
+            graph[parent.val].append(node.val)
+            buildGraph(node.left, node)
+            buildGraph(node.right, node)
         
-        buildGraph(root)
+        buildGraph(root.left, root)
+        buildGraph(root.right, root)
 
         #start from target to find the closest leaf
         queue = deque([k])
