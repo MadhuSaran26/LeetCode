@@ -21,7 +21,7 @@ class Solution:
                 heappush(heap, (nums1[idx1+1]+nums2[idx2], idx1+1, idx2))
                 visited.add((idx1+1, idx2))
             
-        return result #when k value is greater than m+n
+        return result #when k value is greater than m*n
         
 
             
