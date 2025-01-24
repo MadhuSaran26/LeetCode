@@ -7,12 +7,10 @@ class Solution:
         heap = [(nums1[0]+nums2[0], 0, 0)]
         visited = set()
 
-        while heap:
+        while heap and k>0:
             _, idx1, idx2 = heappop(heap)
             result.append([nums1[idx1], nums2[idx2]])
-            len_result += 1
-            if len_result == k:
-                return result
+            k -= 1
 
             if (idx1, idx2+1) not in visited and idx2+1 < n:
                 heappush(heap, (nums1[idx1]+nums2[idx2+1], idx1, idx2+1))
