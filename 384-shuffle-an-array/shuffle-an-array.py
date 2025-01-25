@@ -2,19 +2,18 @@ class Solution:
 
     def __init__(self, nums: List[int]):
         self.array = nums
-        self.original = list(nums)
         
     def reset(self) -> List[int]:
-        self.array = list(self.original)
         return self.array
         
     def shuffle(self) -> List[int]:
         #Using Fishes-Yates algorithm to swap the elements randomly to generate the random shuffle effect
-        for idx in range(len(self.array)):
-            swap_idx = random.randrange(len(self.array))
-            self.array[idx], self.array[swap_idx] = self.array[swap_idx], self.array[idx]
+        auxiliary = list(self.array)
+        for idx in range(len(auxiliary)-1, -1, -1):
+            swap_idx = random.randint(0, idx)
+            auxiliary[idx], auxiliary[swap_idx] = auxiliary[swap_idx], auxiliary[idx]
 
-        return self.array        
+        return auxiliary        
 
 
 # Your Solution object will be instantiated and called as such:
