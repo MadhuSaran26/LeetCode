@@ -4,7 +4,7 @@ class Solution:
         candidates.sort() # sorting helps in handling duplicates in candidates
 
         def backtracking(current, remaining, start):
-            if remaining == 0 and current not in result:
+            if remaining == 0:
                 result.append(list(current))
                 return
             
