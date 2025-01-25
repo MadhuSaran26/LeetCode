@@ -17,7 +17,7 @@ class Solution:
                 return
             if node.val > second:
                 return
-            if node.val != root.val and node.val < second:
+            if node.val != root.val:
                 second = node.val
             dfs(node.left)
             dfs(node.right)
