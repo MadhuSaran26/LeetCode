@@ -8,7 +8,7 @@ class Solution:
         
     def shuffle(self) -> List[int]:
         #Using Fishes-Yates algorithm to swap the elements randomly to generate the random shuffle effect
-        auxiliary = list(self.array)
+        auxiliary = self.array[:]
         for idx in range(len(auxiliary)-1, -1, -1):
             swap_idx = random.randint(0, idx)
             auxiliary[idx], auxiliary[swap_idx] = auxiliary[swap_idx], auxiliary[idx]
