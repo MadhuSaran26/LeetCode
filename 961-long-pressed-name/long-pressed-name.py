@@ -6,8 +6,8 @@ class Solution:
             if npointer < nlen and name[npointer] == typed[tpointer]:
                 npointer += 1
                 tpointer += 1
-            elif 0 < tpointer < tlen and typed[tpointer] == typed[tpointer-1]:
-                    tpointer += 1
+            elif tpointer > 0 and typed[tpointer] == typed[tpointer-1]:
+                tpointer += 1
             else:
                 return False
 
