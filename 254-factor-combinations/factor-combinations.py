@@ -8,7 +8,7 @@ class Solution:
             if len(current)>0:
                 result.append(current+[remaining])
             
-            for idx in range(start, int(remaining**0.5)+1):
+            for idx in range(start, int(math.sqrt(remaining))+1):
                 if remaining % idx == 0:
                     backtracking(current+[idx], remaining//idx, idx)
         
