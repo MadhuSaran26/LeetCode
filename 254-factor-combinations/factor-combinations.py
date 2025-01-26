@@ -9,7 +9,6 @@ class Solution:
                 result.append(current+[remaining])
             
             for idx in range(start, int(remaining**0.5)+1):
-                print(idx, start, int(remaining**0.5)+1)
                 if remaining % idx == 0:
                     backtracking(current+[idx], remaining//idx, idx)
         
