@@ -48,6 +48,8 @@ class Solution:
             robot.turnRight()
 
         def backtracking(x, y, d):
+            if (x, y) in visited:
+                return
             visited.add((x,y))
             robot.clean()
             for i in range(4):
