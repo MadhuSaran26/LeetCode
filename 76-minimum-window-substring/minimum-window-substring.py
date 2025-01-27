@@ -3,7 +3,9 @@ class Solution:
         left = 0
         s = list(s)
         slen = len(s)
-        tcnt = Counter(t)
+        tcnt = defaultdict(int)
+        for c in t:
+            tcnt[c] += 1
         min_window = (float('inf'), -1, -1)
         window_cnt = defaultdict(int)
         result = []
