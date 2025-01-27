@@ -4,9 +4,9 @@ class Solution:
         s = list(s)
         slen = len(s)
         tcnt = defaultdict(int)
-        window_cnt = defaultdict(int)
         for c in t:
             tcnt[c] += 1
+        window_cnt = defaultdict(int)
         min_window = (float('inf'), -1, -1)
         have, need = 0, len(tcnt)
         for right in range(slen):
