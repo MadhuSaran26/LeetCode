@@ -4,11 +4,10 @@ class Solution:
         s = list(s)
         slen = len(s)
         tcnt = defaultdict(int)
+        window_cnt = defaultdict(int)
         for c in t:
             tcnt[c] += 1
         min_window = (float('inf'), -1, -1)
-        window_cnt = defaultdict(int)
-        result = []
         have, need = 0, len(tcnt)
         for right in range(slen):
             window_cnt[s[right]] += 1
