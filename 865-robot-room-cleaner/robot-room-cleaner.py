@@ -48,15 +48,14 @@ class Solution:
             robot.turnRight()
 
         def backtracking(x, y, d):
-            if (x, y) in visited:
-                return
             visited.add((x,y))
             robot.clean()
             for i in range(4):
-                dx, dy = directions[(d + i) % 4]
+                nd = (d + i) % 4
+                dx, dy = directions[nd]
                 nx, ny = (x + dx, y + dy)
                 if (nx, ny) not in visited and robot.move():
-                    backtracking(nx, ny, ((d + i) % 4))
+                    backtracking(nx, ny, nd)
                     goBack()
                 robot.turnRight()
         
