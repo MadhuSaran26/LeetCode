@@ -9,7 +9,7 @@ class Solution:
         hash_dict = defaultdict(int)
         char2int = {'A':0, 'C':1, 'G':2, 'T':3} # character mapping for hashing
         p_hash = 0
-        s = list(s)
+        #s = list(s)
         result = set()
         # calculating hash
         for idx in range(p_len):
@@ -28,7 +28,7 @@ class Solution:
                 p_hash += p
             hash_dict[p_hash] += 1
             if hash_dict[p_hash] > 1:
-                result.add(''.join(s[idx:idx+p_len]))
+                result.add(s[idx:idx+p_len])
         
         return list(result)
 
