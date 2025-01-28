@@ -9,7 +9,6 @@ class Solution:
         hash_dict = defaultdict(int)
         char2int = {'A':0, 'C':1, 'G':2, 'T':3} # character mapping for hashing
         p_hash = 0
-        #s = list(s)
         result = set()
         # calculating hash
         for idx in range(p_len):
@@ -21,11 +20,11 @@ class Solution:
             old, new = s[idx-1], s[idx+p_len-1]
             # Update the rolling hash
             # removing old character's contribution
-            p_hash = (p_hash - char2int[old] * b_multiplier) % p
+            p_hash = ((p_hash - char2int[old] * b_multiplier) * b + char2int[new]) % p
             # adding new character's contribution
-            p_hash = (p_hash * b + char2int[new]) % p
+            #p_hash = (p_hash * b + char2int[new]) % p
             hash_dict[p_hash] += 1
-            if p_hash not in result and hash_dict[p_hash] > 1:
+            if hash_dict[p_hash] > 1:
                 result.add(s[idx:idx+p_len])
         
         return list(result)
