@@ -25,7 +25,7 @@ class Solution:
             # adding new character's contribution
             p_hash = (p_hash * b + char2int[new]) % p
             hash_dict[p_hash] += 1
-            if hash_dict[p_hash] > 1:
+            if p_hash not in result and hash_dict[p_hash] > 1:
                 result.add(s[idx:idx+p_len])
         
         return list(result)
