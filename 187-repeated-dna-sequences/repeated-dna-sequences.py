@@ -1,8 +1,6 @@
 class Solution:
     def findRepeatedDnaSequences(self, s: str) -> List[str]:
         p_len = 10 # pattern length
-        if len(s) < 10:
-            return []
         seen = set()
         result = set()
         
