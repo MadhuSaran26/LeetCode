@@ -24,8 +24,6 @@ class Solution:
             p_hash = (p_hash - char2int[old] * b_multiplier) % p
             # adding new character's contribution
             p_hash = (p_hash * b + char2int[new]) % p
-            if p_hash < 0:  # Ensure non-negative hash
-                p_hash += p
             hash_dict[p_hash] += 1
             if hash_dict[p_hash] > 1:
                 result.add(s[idx:idx+p_len])
