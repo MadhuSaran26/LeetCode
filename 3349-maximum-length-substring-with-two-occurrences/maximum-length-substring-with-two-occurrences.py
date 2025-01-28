@@ -4,7 +4,7 @@ class Solution:
         left = 0
         seen = defaultdict(int)
         for right in range(len(s)):
-            while seen.get(s[right], 0)==2:
+            while seen[s[right]]==2:
                 seen[s[left]] -= 1
                 left += 1
             seen[s[right]] += 1
