@@ -5,16 +5,16 @@ class SparseVector:
             if elem != 0:
                 self.nums[idx] = elem
     
-    def getVector(self):
-        return self.nums
+    #def getVector(self):
+    #    return self.nums
 
     # Return the dotProduct of two sparse vectors
     def dotProduct(self, vec: 'SparseVector') -> int:
         result = 0
-        vec_nums = vec.getVector()
-        for key in vec_nums:
+        #vec_nums = vec.getVector()
+        for key in vec.nums:
             if key in self.nums:
-                result += vec_nums[key] * self.nums[key]
+                result += vec.nums[key] * self.nums[key]
         return result
 
         
