@@ -11,13 +11,14 @@ class AllOne:
             self.data[key] += 1
         else:
             self.data[key] = 1
+        return None
 
     def dec(self, key: str) -> None:
         self.prev_op = 0
         self.data[key] -= 1
         if self.data[key] == 0:
             del self.data[key]
-        
+        return None 
 
     def getMaxKey(self) -> str:  
         if self.prev_op == 1:
