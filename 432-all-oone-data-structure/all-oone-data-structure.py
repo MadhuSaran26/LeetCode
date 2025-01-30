@@ -22,6 +22,7 @@ class AllOne:
     def getMaxKey(self) -> str:  
         if self.prev_op == 1:
             return self.result
+        self.prev_op = 1
         if self.data:
             value = list(self.data.values())[0]
             max_key = list(self.data.keys())[0]
@@ -30,15 +31,15 @@ class AllOne:
                     value = self.data[key]
                     max_key = key
             self.result = max_key
+            return max_key
         else:
             self.result = ''
-
-        self.prev_op = 1
-        return self.result     
+            return '' 
 
     def getMinKey(self) -> str: 
         if self.prev_op == 2:
             return self.result
+        self.prev_op = 2
         if self.data:
             value = list(self.data.values())[0]
             min_key = list(self.data.keys())[0]
@@ -47,11 +48,10 @@ class AllOne:
                     value = self.data[key]
                     min_key = key
             self.result = min_key
+            return min_key
         else:
             self.result = ''
-
-        self.prev_op = 2
-        return self.result
+            return ''
         
 
 
