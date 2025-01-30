@@ -38,7 +38,6 @@ class AllOne:
         
         if freq_node != self.head and not freq_node.keys:
             self.removeNode(freq_node)
-            del freq_node
         
         return None
 
@@ -64,7 +63,6 @@ class AllOne:
           
         if not freq_node.keys:
             self.removeNode(freq_node)
-            del freq_node
 
         return None 
 
