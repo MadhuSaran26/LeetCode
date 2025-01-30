@@ -24,7 +24,7 @@ class AllOne:
             freq_node = self.head
         
         next_node = freq_node.next
-        if next_node == self.tail or next_node.freq != freq+1:
+        if next_node.freq != freq+1:
             new_node = Node(freq+1)
             new_node.keys.add(key)
             new_node.prev = freq_node
@@ -49,7 +49,7 @@ class AllOne:
         prev_node = freq_node.prev
         if freq == 0:
             del self.data[key]
-        elif prev_node == self.head or prev_node.freq != freq:
+        elif prev_node.freq != freq:
             new_node = Node(freq)
             new_node.keys.add(key)
             new_node.prev = prev_node
