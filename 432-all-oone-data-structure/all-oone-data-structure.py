@@ -1,12 +1,13 @@
 class AllOne:
 
     def __init__(self):
-        self.prev_op = 0
+        self.prev_operation = 0
+        self.result = ""
         self.data = dict()
-        self.result = ''
+        
 
     def inc(self, key: str) -> None:
-        self.prev_op = 0
+        self.prev_operation = 0
         if key in self.data:
             self.data[key] += 1
         else:
@@ -14,45 +15,46 @@ class AllOne:
         return None
 
     def dec(self, key: str) -> None:
-        self.prev_op = 0
+        self.prev_operation = 0
         self.data[key] -= 1
         if self.data[key] == 0:
-            del self.data[key]
-        return None 
+            del self.data[key]  
+        return None
 
-    def getMaxKey(self) -> str:  
-        if self.prev_op == 1:
+    def getMaxKey(self) -> str:
+        if self.prev_operation == 1:
             return self.result
-        self.prev_op = 1
+        self.prev_operation = 1
         if self.data:
-            value = list(self.data.values())[0]
-            max_key = list(self.data.keys())[0]
-            for key in self.data:
-                if self.data[key] > value:
-                    value = self.data[key]
-                    max_key = key
-            self.result = max_key
-            return max_key
+            count = list(self.data.values())[0]
+            key = list(self.data.keys())[0]
+            for key_d in self.data:
+                if self.data[key_d] > count:
+                    count = self.data[key_d]
+                    key = key_d
+            self.result = key
+            return key
         else:
-            self.result = ''
-            return '' 
-
-    def getMinKey(self) -> str: 
-        if self.prev_op == 2:
+            self.result = ""
+            return ""
+        
+    def getMinKey(self) -> str:
+        if self.prev_operation == 2:
             return self.result
-        self.prev_op = 2
+        self.prev_operation = 2
         if self.data:
-            value = list(self.data.values())[0]
-            min_key = list(self.data.keys())[0]
-            for key in self.data:
-                if self.data[key] < value:
-                    value = self.data[key]
-                    min_key = key
-            self.result = min_key
-            return min_key
+            count = list(self.data.values())[0]
+            key = list(self.data.keys())[0]
+            for key_d in self.data:
+                if self.data[key_d] < count:
+                    count = self.data[key_d]
+                    key = key_d
+            self.result = key
+            return key
         else:
-            self.result = ''
-            return ''
+            self.result = ""
+            return ""
+        
         
 
 
