@@ -5,7 +5,6 @@ class Solution:
         def backtracking(current, left_cnt, right_cnt):
             if len(current)==2*n:
                 result.append("".join(current))
-                return
             if left_cnt < n:
                 current.append("(")
                 backtracking(current, left_cnt+1, right_cnt)
