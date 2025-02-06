@@ -5,11 +5,13 @@ class Solution:
 
         while left < right:
             w = right - left
-            h = min(height[left], height[right])
-            max_area = max(max_area, h * w)
             if height[left] < height[right]:
+                h = height[left]
                 left += 1
             else:
+                h = height[right]
                 right -= 1
+            
+            max_area = max(max_area, h * w)
         
         return max_area
