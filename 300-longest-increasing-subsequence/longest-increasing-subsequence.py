@@ -1,9 +1,5 @@
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        if not nums:
-            return 0
-        
-        # [8,2,4,3,6,12]
         n=len(nums)
         # dp to hold the longest subsequence length until i
         dp = [1]*n
