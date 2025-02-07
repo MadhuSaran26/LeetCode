@@ -1,6 +1,5 @@
 class Solution:
     def longestPalindromeSubseq(self, s: str) -> int:
-        s = list(s)
 
         @lru_cache(None)
         def recursive(l, r):
