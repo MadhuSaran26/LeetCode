@@ -24,8 +24,12 @@ class Solution:
             for dr, dc in directions:
                 nr, nc = row + dr, col + dc
                 if 0 <= nr < numRows and 0 <= nc < numCols and not visited[nr][nc]:
-                    result += max(0, height - heightMap[nr][nc])
-                    heappush(heap, (max(height, heightMap[nr][nc]), nr, nc))
+                    #result += max(0, height - heightMap[nr][nc])
+                    if height > heightMap[nr][nc]:
+                        result += height - heightMap[nr][nc]
+                        heappush(heap, (height, nr, nc))
+                    else:
+                        heappush(heap, (heightMap[nr][nc], nr, nc))
                     visited[nr][nc] = True
         
         return result
