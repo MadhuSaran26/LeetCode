@@ -8,15 +8,15 @@ class Solution:
 
         # adding left and right edge cells to the heap
         for i in range(numRows):
-            for j in [0, numCols-1]:
-                heappush(heap, (heightMap[i][j], i, j))
-                visited[i][j] = True
+            heappush(heap, (heightMap[i][0], i, 0))
+            heappush(heap, (heightMap[i][numCols-1], i, numCols-1))
+            visited[i][0] = visited[i][numCols-1] =True
         
         # adding top and bottom edge cells to the heap
         for j in range(numCols):
-            for i in [0, numRows-1]:
-                heappush(heap, (heightMap[i][j], i, j))
-                visited[i][j] = True
+            heappush(heap, (heightMap[0][j], 0, j))
+            heappush(heap, (heightMap[numRows-1][j], numRows-1, j))
+            visited[0][j] = visited[numRows-1][j] = True
         
         while heap:
             height, row, col = heappop(heap)
