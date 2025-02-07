@@ -7,7 +7,7 @@ class Solution:
         left_max, right_max = height[0], height[len(height)-1]
         result = 0
 
-        while left + 1 < right:
+        while left < right:
             #higher bar exists on the right
             if right_max > left_max:
                 left += 1
