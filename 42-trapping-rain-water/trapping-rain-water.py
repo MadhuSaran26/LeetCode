@@ -2,25 +2,28 @@ class Solution:
     def trap(self, height: List[int]) -> int:
         if not height:
             return 0
-        n = len(height)
+        
+        left, right = 0, len(height)-1
+        left_max, right_max = height[0], height[len(height)-1]
         result = 0
 
-        # [3, 4, 1, 2, 2, 5, 1, 0, 2]
-        #calculating max values from right until that index
-        right_max = [0]*n
-        right_max[n-1] = height[n-1]
-        for idx in range(n-2, -1, -1):
-            right_max[idx] = max(height[idx], right_max[idx+1])
-        
-        #calculating max values from left until that index
-        left_max = [0]*n
-        left_max[0] = height[0]
-        for idx in range(1, n):
-            left_max[idx] = max(height[idx], left_max[idx-1])
-        
-        for idx in range(n):
-            #calculating hold capacity
-            result += min(left_max[idx], right_max[idx]) - height[idx]
+        while left < right:
+            #higher bar exists on the right
+            if right_max > left_max:
+                left += 1
+                #if height[left] is greater, than it can't hold water
+                if height[left] > left_max:
+                    left_max = height[left]
+                else:
+                    result += left_max - height[left]
+            #higher bar exists on the left
+            else:
+                right -= 1
+                #if height[left] is greater, than it can't hold water
+                if height[right] > right_max:
+                    right_max = height[right]
+                else:
+                    result += right_max - height[right]
         
         return result
 
