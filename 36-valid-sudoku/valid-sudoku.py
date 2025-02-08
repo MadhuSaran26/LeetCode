@@ -15,8 +15,7 @@ class Solution:
                         break
                     else:
                         continue
-                else:  
-                    row_set[i].add(elem)
+                row_set[i].add(elem)
                 # check the column
                 if elem in col_set[j]:
                     if elem != ".":
@@ -24,8 +23,7 @@ class Solution:
                         break
                     else:
                         continue
-                else:  
-                    col_set[j].add(elem)
+                col_set[j].add(elem)
                 # check the box
                 box_r = i//3
                 box_c = j//3
@@ -36,8 +34,7 @@ class Solution:
                         break
                     else:
                         continue
-                else:  
-                    box_set[box_id].add(elem)
+                box_set[box_id].add(elem)
             
         return result
 
