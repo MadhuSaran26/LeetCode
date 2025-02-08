@@ -19,9 +19,7 @@ class Solution:
                     return False
                 col_set[j].add(elem)
                 # check the box
-                box_r = i//3
-                box_c = j//3
-                box_id = box_r*3 + box_c
+                box_id = (i//3)*3 + (j//3) # box_r = i//3; box_c = j//3
                 if elem in box_set[box_id]:
                     return False
                 box_set[box_id].add(elem)
