@@ -14,37 +14,32 @@ class LRUCache:
         self.tail.prev = self.head
         self.dict = dict()
         self.capacity = capacity
-        self.count = 0
         
 
     def get(self, key: int) -> int:
         if key in self.dict:
             node = self.dict[key]
-            self.remove(node)
-            self.add(node)
+            self._remove(node)
+            self._add(node)
             return node.val
         return -1      
 
     def put(self, key: int, value: int) -> None:
         if key in self.dict:
-            node = self.dict[key]
-            self.remove(node)
-            self.count -= 1
+            self._remove(self.dict[key])
         node = Node(key, value)
         self.dict[key] = node
-        self.add(node)
-        self.count += 1
-        if self.count > self.capacity:
+        self._add(node)
+        if len(self.dict) > self.capacity:
             node2remove = self.head.next
-            self.remove(node2remove)
+            self._remove(node2remove)
             del self.dict[node2remove.key]
-            self.count -= 1
     
-    def remove(self, node):
+    def _remove(self, node):
         node.next.prev = node.prev
         node.prev.next = node.next
     
-    def add(self, node):
+    def _add(self, node):
         prev_node = self.tail.prev
         prev_node.next = node
         node.prev = prev_node
