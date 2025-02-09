@@ -17,12 +17,12 @@ class LRUCache:
         
 
     def get(self, key: int) -> int:
-        if key in self.dict:
-            node = self.dict[key]
-            self._remove(node)
-            self._add(node)
-            return node.val
-        return -1      
+        if key not in self.dict:
+            return -1 
+        node = self.dict[key]
+        self._remove(node)
+        self._add(node)
+        return node.val    
 
     def put(self, key: int, value: int) -> None:
         if key in self.dict:
