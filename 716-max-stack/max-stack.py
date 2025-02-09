@@ -12,7 +12,7 @@ class MaxStack:
 
     def push(self, x: int) -> None:
         # pushes the value into stack
-        self.stack.append((-self.cnt, -x))
+        self.stack.append((self.cnt, x))
         heappush(self.values, (-x, -self.cnt))
         self.cnt += 1
 
@@ -22,26 +22,26 @@ class MaxStack:
             self.stack.pop()
         idx, value = self.stack.pop()
         self.remove_set.add(idx)
-        return -value
+        return value
 
     def top(self) -> int:
         # returns top of stack
         while self.stack and self.stack[-1][0] in self.remove_set:
             self.stack.pop()
-        return -self.stack[-1][1]      
+        return self.stack[-1][1]      
 
     def peekMax(self) -> int:
         # returns max value in stack
-        while self.values and self.values[0][1] in self.remove_set:
+        while self.values and -self.values[0][1] in self.remove_set:
             heappop(self.values)
         return -self.values[0][0]      
 
     def popMax(self) -> int:
         # removes max value from stack
-        while self.values and self.values[0][1] in self.remove_set:
+        while self.values and -self.values[0][1] in self.remove_set:
             heappop(self.values)
         value, idx = heappop(self.values)
-        self.remove_set.add(idx)
+        self.remove_set.add(-idx)
         return -value
 
 
