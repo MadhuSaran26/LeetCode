@@ -34,7 +34,7 @@ class LRUCache:
         self.dict[key] = node
         self.add(node)
         self.count += 1
-        if self.count > self.capacity:
+        if self.count == self.capacity+1:
             node2remove = self.head.next
             self.remove(node2remove)
             del self.dict[node2remove.key]
