@@ -1,7 +1,7 @@
 class MaxStack:
 
     def __init__(self):
-        # self.stack -> max heap to keep track of top
+        # self.stack -> list to keep track of top
         # self.values -> max heap to keep track of max value
         # self.cnt -> total count in stack
         # self.remove_set -> hash set to keep track of deleted items
