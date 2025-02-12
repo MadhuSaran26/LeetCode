@@ -6,10 +6,10 @@ class Solution:
             if char == "(":
                 stack.append(idx)
             elif char == ")":
-                if stack and s[stack[-1]] == "(":
+                if stack: # and s[stack[-1]] == "(":
                     stack.pop()
                 else:
-                    stack.append(idx)
+                    s[idx] = "" #stack.append(idx)
         
         for idx in stack:
             s[idx] = ""
