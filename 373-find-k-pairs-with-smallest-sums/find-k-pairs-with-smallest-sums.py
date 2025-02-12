@@ -4,11 +4,12 @@ class Solution:
         # since both arrays are sorted, the sum of first elements from these two arrays will be the smallest
         heap = [((nums1[0] + nums2[0]), 0, 0)]
         visited = {(0,0)}
-        result = []
+        result, result_len = [], 0
         while heap:
             _, idx1, idx2 = heappop(heap)
             result.append([nums1[idx1], nums2[idx2]])
-            if len(result) == k:
+            result_len += 1
+            if result_len == k:
                 return result
             
             # next possible smallest elements
