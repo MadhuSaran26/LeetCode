@@ -6,7 +6,7 @@ class Solution:
             if char == "(":
                 stack.append(idx)
             elif char == ")":
-                if stack: # and s[stack[-1]] == "(":
+                if stack:
                     stack.pop()
                 else:
                     s[idx] = "" #stack.append(idx)
