@@ -6,18 +6,20 @@ class Solution:
         for c in chars:
             count[ord(c) - ord('a')] += 1
         
+        good = True
         for word in words:
-            word_count = [0]*26
+            word_count = count[:]
             for c in word:
-                word_count[ord(c) - ord('a')] += 1
-            
-            good = True
-            for i in range(26):
-                if count[i] < word_count[i]:
+                idx = ord(c) - ord('a')
+                if word_count[idx] > 0:
+                    word_count[idx] -= 1
+                else:
                     good = False
                     break
             
             if good:
                 result += len(word)
+            
+            good = True
     
         return result
