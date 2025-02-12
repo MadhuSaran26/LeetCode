@@ -2,8 +2,7 @@ class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
         s = list(s)
         stack = []
-        for idx in range(len(s)):
-            char = s[idx]
+        for idx, char in enumerate(s):
             if char == "(":
                 stack.append(idx)
             elif char == ")":
