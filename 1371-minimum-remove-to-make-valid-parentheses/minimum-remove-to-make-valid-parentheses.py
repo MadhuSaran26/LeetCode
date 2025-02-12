@@ -1,7 +1,7 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        result = ""
-        stack = deque([])
+        s = list(s)
+        stack = []
         for idx in range(len(s)):
             char = s[idx]
             if char == "(":
@@ -12,13 +12,10 @@ class Solution:
                 else:
                     stack.append(idx)
         
-        for idx in range(len(s)):
-            if stack and idx == stack[0]:
-                stack.popleft()
-            else:
-                result += s[idx]
+        for idx in stack:
+            s[idx] = ""
             
-        return result
+        return "".join(s)
 
 
 
