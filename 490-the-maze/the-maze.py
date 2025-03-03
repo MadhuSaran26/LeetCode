@@ -12,7 +12,7 @@ class Solution:
             if (crow, ccol) == destination:
                 return True
             for dr, dc in directions:
-                nr, nc = crow + dr, ccol + dc
+                nr, nc = crow, ccol
                 # move the ball in chosen direction until it can
                 while 0 <= nr < numRows and 0 <= nc < numCols and maze[nr][nc]==0:
                     nr += dr
