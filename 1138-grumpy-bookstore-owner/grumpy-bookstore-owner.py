@@ -1,9 +1,9 @@
 class Solution:
     def maxSatisfied(self, customers: List[int], grumpy: List[int], minutes: int) -> int:
         n = len(customers)
-        grumpy_count = Counter(grumpy)
-        if 1 not in grumpy_count:
-            return sum(customers)
+        #grumpy_count = Counter(grumpy)
+        #if 1 not in grumpy_count:
+        #    return sum(customers)
         
         satisfied_customers = 0
         for idx, grumpy_elem in enumerate(grumpy):
