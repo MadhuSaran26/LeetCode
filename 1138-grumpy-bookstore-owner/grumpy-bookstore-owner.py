@@ -9,17 +9,20 @@ class Solution:
         for idx, grumpy_elem in enumerate(grumpy):
             if grumpy_elem == 0:
                 satisfied_customers += customers[idx]
-        max_satisfied_customers = satisfied_customers
-
-        for left in range(0, n-minutes+1):
-            new_satisfied = satisfied_customers
-            for idx in range(left, left+minutes):
-                if grumpy[idx] == 1:
-                    new_satisfied += customers[idx]
-            
-            max_satisfied_customers = max(max_satisfied_customers, new_satisfied)
         
-        return max_satisfied_customers
+        add_satisfied_customers = 0
+        left = 0
+        new_satisfied = 0
+        for right in range(n):
+            while right-left+1 > minutes:
+                add_satisfied_customers = max(add_satisfied_customers, new_satisfied)
+                new_satisfied -= customers[left] * grumpy[left]
+                left += 1
+            new_satisfied += customers[right] * grumpy[right]
+            
+        add_satisfied_customers = max(add_satisfied_customers, new_satisfied)
+        
+        return satisfied_customers + add_satisfied_customers
             
                     
         
