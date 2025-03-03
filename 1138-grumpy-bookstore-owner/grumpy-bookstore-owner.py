@@ -12,11 +12,10 @@ class Solution:
         max_satisfied_customers = satisfied_customers
 
         for left in range(0, n-minutes+1):
-            window = grumpy[left:left+minutes]
             new_satisfied = satisfied_customers
-            for idx, win_elem in enumerate(window):
-                if win_elem == 1:
-                    new_satisfied += customers[left+idx]
+            for idx in range(left, left+minutes):
+                if grumpy[idx] == 1:
+                    new_satisfied += customers[idx]
             
             max_satisfied_customers = max(max_satisfied_customers, new_satisfied)
         
