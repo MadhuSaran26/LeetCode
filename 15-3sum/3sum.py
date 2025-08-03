@@ -1,7 +1,6 @@
 class Solution:
     def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
-        fptr = 0
         result = []
 
         for fptr in range(len(nums)):
@@ -24,6 +23,6 @@ class Solution:
                     
                     left += 1
                     right -= 1
-                    
+
         return result
             
