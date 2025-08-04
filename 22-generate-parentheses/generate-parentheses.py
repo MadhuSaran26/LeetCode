@@ -2,17 +2,22 @@ class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         result = []
 
-        def backtracking(current, left_cnt, right_cnt):
-            if len(current)==2*n:
+        def backtrack(current, left, right):
+            if n == right and left == right:
                 result.append("".join(current))
-            if left_cnt < n:
+            
+            if left < n:
                 current.append("(")
-                backtracking(current, left_cnt+1, right_cnt)
+                backtrack(current, left+1, right)
                 current.pop()
-            if right_cnt < left_cnt:
+            if right < left:
                 current.append(")")
-                backtracking(current, left_cnt, right_cnt+1)
+                backtrack(current, left, right+1)
                 current.pop()
+        
+        backtrack([], 0, 0)
+        return result
 
-        backtracking([], 0, 0)
-        return result        
+
+
+        
