@@ -10,8 +10,6 @@ class Solution:
         for right in range(len_s2):
             window_count[s2[right]] += 1
             if right - left + 1 == len_s1:
-                print(window_count)
-                print(s1_count)
                 if window_count == s1_count:
                     return True
                 window_count[s2[left]] -= 1
