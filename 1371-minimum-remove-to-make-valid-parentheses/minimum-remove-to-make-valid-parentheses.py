@@ -1,20 +1,23 @@
 class Solution:
     def minRemoveToMakeValid(self, s: str) -> str:
-        s = list(s)
         stack = []
+        s = list(s)
         for idx, char in enumerate(s):
+            if char == ")":
+                if not stack:
+                    s[idx] = ""
+                else:
+                    stack.pop()
             if char == "(":
                 stack.append(idx)
-            elif char == ")":
-                if stack: # and s[stack[-1]] == "(":
-                    stack.pop()
-                else:
-                    s[idx] = "" #stack.append(idx)
+        while stack:
+            i = stack.pop()
+            s.pop(i)
         
-        for idx in stack:
-            s[idx] = ""
-            
         return "".join(s)
+            
+
+
 
 
 
