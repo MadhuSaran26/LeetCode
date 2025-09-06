@@ -12,7 +12,7 @@ class Solution:
                 stack.append(idx)
         while stack:
             i = stack.pop()
-            s.pop(i)
+            s[i] = ""
         
         return "".join(s)
             
