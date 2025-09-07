@@ -7,7 +7,7 @@ class Solution:
         for i, char in enumerate(s):
             if char.isdigit():
                 current = current * 10 + int(char)
-            if char in {'+','-','*','/'} or i == n-1:
+            if (not char.isspace() and not char.isdigit()) or i == n-1:
                 if operation == '+':
                     stack.append(current)
                 if operation == '-':
