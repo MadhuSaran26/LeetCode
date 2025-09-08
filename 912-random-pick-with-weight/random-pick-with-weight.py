@@ -2,11 +2,11 @@ import random
 class Solution:
 
     def __init__(self, w: List[int]):
-        self.prefix_sum = [0] * len(w)
+        self.prefix_sum = []
         cum_sum = 0
-        for idx, num in enumerate(w):
+        for num in w:
             cum_sum += num
-            self.prefix_sum[idx] = cum_sum
+            self.prefix_sum.append(cum_sum)
             
 
     def pickIndex(self) -> int:
