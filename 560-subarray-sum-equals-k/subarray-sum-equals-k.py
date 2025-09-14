@@ -1,7 +1,7 @@
 from collections import defaultdict
 class Solution:
     def subarraySum(self, nums: List[int], k: int) -> int:
-        result = sum_idx = 0
+        result, sum_idx = 0, 0
         prefix_count = defaultdict(int)
         prefix_count[0] = 1 # Make sure that subarrays starting from index 0 that sum to k are counted.
 
