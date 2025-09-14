@@ -7,19 +7,19 @@
 class Solution:
     def sumNumbers(self, root: Optional[TreeNode]) -> int:
         result = 0
-        if not root:
-            return result
         
-        def dfs(node):
+        def dfs(node, total):
+            nonlocal result
+            total = total*10 + node.val
             if not node.left and not node.right:
-                return [str(node.val)]
-            left = dfs(node.left) if node.left else []
-            right = dfs(node.right) if node.right else []
-            curr = str(node.val)
-            return [curr + prev for prev in left] + [curr + prev for prev in right]
+                result += total
+            else:
+                if node.left:
+                    dfs(node.left, total)
+                if node.right:
+                    dfs(node.right, total)
         
-        for num_str in dfs(root):
-            result += int(num_str)
+        dfs(root, 0)
         
         return result
 
