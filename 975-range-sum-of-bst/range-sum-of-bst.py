@@ -13,7 +13,7 @@ class Solution:
         def dfs(node):
             nonlocal result
             if not node:
-                return result
+                return
             result += node.val if low <= node.val <= high else 0
             if node.val > low:
                 dfs(node.left)
