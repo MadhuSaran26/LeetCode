@@ -15,10 +15,10 @@ class Solution:
             if start <= end:
                 result.append([start, end])
 
-            if fend > send:
-                sptr += 1
-            else:
+            if fend < send:
                 fptr += 1
+            else:
+                sptr += 1
         
         return result
         
