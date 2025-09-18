@@ -14,10 +14,9 @@ class Solution:
         dummy = Node(-1)
         cpointer = dummy
         while pointer:
-            node = Node(pointer.val)
-            cpointer.next = node
+            cpointer.next = Node(pointer.val)
             cpointer = cpointer.next
-            copy_dict[pointer] = node
+            copy_dict[pointer] = cpointer
             pointer = pointer.next
         
         pointer = head
