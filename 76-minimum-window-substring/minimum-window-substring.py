@@ -1,27 +1,26 @@
-from collections import defaultdict, Counter
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
+        slen, tlen = len(s), len(t)
+        tcount = Counter(t)
+        have, need = 0, len(tcount)
+        window = defaultdict(int)
         left = 0
-        tcnt = Counter(t)
-        have, need = 0, len(tcnt)
-        window_cnt = defaultdict(int)
-        min_window = [float('inf'), -1, -1]
-        for right in range(len(s)):
-            window_cnt[s[right]] += 1
-            if s[right] in tcnt and window_cnt[s[right]] == tcnt[s[right]]:
+        min_length = [float('inf'), -1, -1]
+        for right, char in enumerate(s):
+            window[char] += 1
+            if window[char] == tcount[char]:
                 have += 1
-            
             while have == need:
-                if min_window[0] > right - left + 1:
-                    min_window = [right - left + 1, left, right]
-                
-                window_cnt[s[left]] -= 1
-                if s[left] in tcnt and window_cnt[s[left]] < tcnt[s[left]]:
+                if min_length[0] > right - left + 1:
+                    min_length = [right - left + 1, left, right]
+                window[s[left]] -= 1
+                if s[left] in tcount and window[s[left]] < tcount[s[left]]:
                     have -= 1
                 left += 1
+            
         
-        return s[min_window[1]:min_window[2]+1] if min_window[0] != float('inf') else ''
+        return s[min_length[1]:min_length[2]+1] if min_length != float('inf') else ""
 
-
+            
 
         
