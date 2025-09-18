@@ -11,7 +11,7 @@ class Solution:
     def cloneGraph(self, node: Optional['Node']) -> Optional['Node']:
         if not node:
             return None
-        visited = dict()
+        visited = {}
 
         def dfs(root):
             if root in visited:
