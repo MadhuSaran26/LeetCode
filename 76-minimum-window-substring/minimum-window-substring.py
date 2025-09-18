@@ -1,6 +1,5 @@
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        slen, tlen = len(s), len(t)
         tcount = Counter(t)
         have, need = 0, len(tcount)
         window = defaultdict(int)
