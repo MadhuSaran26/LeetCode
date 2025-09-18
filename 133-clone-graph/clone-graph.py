@@ -16,7 +16,7 @@ class Solution:
         def dfs(root):
             if root in visited:
                 return visited[root]
-            cloned_root = Node(root.val)
+            cloned_root = Node(root.val, [])
             visited[root] = cloned_root
             if root.neighbors:
                 cloned_root.neighbors = [dfs(neighbor) for neighbor in root.neighbors]
