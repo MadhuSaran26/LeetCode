@@ -13,6 +13,7 @@ class Solution:
         pointer = head
         dummy = Node(-1)
         cpointer = dummy
+        
         while pointer:
             cpointer.next = Node(pointer.val)
             cpointer = cpointer.next
