@@ -6,8 +6,7 @@ class Solution:
 
         result = ''
         for c in order:
-            char_cnt = count[ord(c)-ord('a')]
-            result += c * char_cnt
+            result += c * count[ord(c)-ord('a')]
             count[ord(c)-ord('a')] = 0
         
         for i, cnt in enumerate(count):
