@@ -1,6 +1,6 @@
 class Solution:
     def countSubstrings(self, s: str) -> int:
-        s = "^#" + "#".join(s) + "#$" # convert s of odd length (2n + 1)
+        s = "#" + "#".join(s) + "#" # convert s of odd length (2n + 1)
         radii = [0] * len(s)
         C = R = 0 # variables to track the longest palindrome center and the boundary so far
         result = 0
