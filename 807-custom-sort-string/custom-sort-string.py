@@ -5,13 +5,12 @@ class Solution:
             count[ord(c)-ord('a')] += 1
 
         result = ''
-        order_set = set()
         for c in order:
-            result += c * count[ord(c)-ord('a')]
-            order_set.add(c)
+            char_cnt = count[ord(c)-ord('a')]
+            result += c * char_cnt
+            count[ord(c)-ord('a')] = 0
         
-        for c in s:
-            if c not in order_set:
-                result += c
+        for i, cnt in enumerate(count):
+            result += chr(i + 97) * cnt
         
         return result
