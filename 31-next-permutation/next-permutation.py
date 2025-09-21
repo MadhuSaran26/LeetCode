@@ -21,6 +21,7 @@ class Solution:
         # swap nums[k] and nums[l] to form the next permutation in the lexographical order
         nums[k], nums[l] = nums[l], nums[k]
 
+        # swap only the part after the new nums[k]
         nums[k+1:] = nums[k+1:][::-1]
 
         
