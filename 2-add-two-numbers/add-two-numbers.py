@@ -17,8 +17,7 @@ class Solution:
                 sum_val += l2.val
                 l2 = l2.next
             carry = sum_val // 10
-            val = sum_val % 10
-            ptr3.next = ListNode(val)
+            ptr3.next = ListNode(sum_val % 10)
             ptr3 = ptr3.next
         
         return dummy.next
