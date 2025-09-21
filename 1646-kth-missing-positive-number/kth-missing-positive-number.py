@@ -1,16 +1,16 @@
 class Solution:
     def findKthPositive(self, arr: List[int], k: int) -> int:
-        i = 1
-        aptr = 0
-        while i <= arr[-1]:
-            if arr[aptr] == i:
-                aptr += 1
+        left, right = 0, len(arr) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            # When no numbers are missing, arr[mid] == mid + 1
+            # arr[mid] - (mid+1) gives the count of missing numbers until mid
+            if arr[mid] - (mid+1) < k:
+                left = mid + 1
             else:
-                k -= 1
-            if k == 0:
-                return i
-            i += 1
-        return i + k -1
+                right = mid - 1
+        return left + k
+
         
 
 
