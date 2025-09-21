@@ -11,14 +11,14 @@ class Solution:
         def dfs(node):
             nonlocal result
             if not node:
-                return [0, 0]
-            left = dfs(node.left)
-            right = dfs(node.right)
-            curr_total = node.val + left[0] + right[0]
-            curr_nodes = 1 + left[1] + right[1]
+                return (0, 0)
+            left_total, left_nodes = dfs(node.left)
+            right_total, right_nodes = dfs(node.right)
+            curr_total = node.val + left_total + right_total
+            curr_nodes = 1 + left_nodes + right_nodes
             if (curr_total // curr_nodes) == node.val:
                 result += 1
-            return [curr_total, curr_nodes]
+            return (curr_total, curr_nodes)
         
         dfs(root)
         return result
