@@ -4,10 +4,10 @@ class Solution:
         squares = []
         while left <= right:
             if abs(nums[left]) > abs(nums[right]):
-                squares.append(nums[left] * nums[left])
+                squares.append(nums[left] ** 2)
                 left += 1
             else:
-                squares.append(nums[right] * nums[right])
+                squares.append(nums[right] ** 2)
                 right -= 1
         return squares[::-1]
         
