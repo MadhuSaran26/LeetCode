@@ -1,13 +1,14 @@
 class Solution:
     def isIsomorphic(self, s: str, t: str) -> bool:
-        s, t = list(s), list(t)
-        if len(set(s)) != len(set(t)):
+        if len(s) != len(t):
             return False
         cmap = dict()
         # since order is preserved, the order of characters in t can be used to check the cmap consistency
-        for i, char in enumerate(s):
-            if char in cmap and cmap[char] != t[i]:
+        for s_char, t_char in zip(s, t):
+            if s_char in cmap and cmap[s_char] != t_char:
                 return False
-            cmap[char] = t[i]
+            if s_char not in cmap and t_char in cmap.values():
+                return False
+            cmap[s_char] = t_char
         return True
         
