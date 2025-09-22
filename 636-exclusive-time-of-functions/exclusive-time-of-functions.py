@@ -3,16 +3,17 @@ class Solution:
         result = [0] * n
         stack = []
         for log in logs:
-            id_exec = log.split(":")
-            idx, time = int(id_exec[0]), int(id_exec[2])
-            if id_exec[1] == "start":
+            idx, etype, time = log.split(":")
+            idx, time = int(idx), int(time)
+            if etype == "start":
                 if stack:
+                    # pause current running function
                     result[stack[-1][0]] += time - stack[-1][1]
                 stack.append((idx, time))
             else:
                 if stack and stack[-1][0] == idx:
-                    result[stack[-1][0]] += time - stack[-1][1] + 1
-                    stack.pop()
+                    fid, start_time = stack.pop()
+                    result[fid] += time - start_time + 1
                     if stack:
                         stack[-1] = (stack[-1][0], time+1)
                 else:
