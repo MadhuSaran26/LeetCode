@@ -1,15 +1,18 @@
 class Solution:
     def numFriendRequests(self, ages: List[int]) -> int:
-        ages.sort()
-        result = 0
-        left = right = 0
-        for age in ages:
-            if age < 15:
-                continue
-            cutoff = age * 0.5 + 7
-            while ages[left] <= cutoff:
+        count_ages = sorted(Counter(ages).items()) # (age, count)
+        window = requests = left = 0
+        for right in range(len(count_ages)):
+            # window represents the number of eligible people who can receive requests
+            window += count_ages[right][1]
+
+            while left < right and count_ages[left][0] <= count_ages[right][0] * 0.5 + 7:
+                window -= count_ages[left][1]
                 left += 1
-            while right + 1 < len(ages) and ages[right + 1] <= age:
-                right += 1
-            result += right - left
-        return result
+            
+            if count_ages[right][0] > 14:
+                requests += count_ages[right][1] * (window-1)
+        
+        return requests
+            
+        
