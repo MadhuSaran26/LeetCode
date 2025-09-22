@@ -8,6 +8,7 @@ class Solution:
             if char in window and window[char] >= left:
                 left = window[char] + 1
             window[char] = right
-            result = max(result, right - left + 1)
+            if right - left + 1 > result:
+                result = right - left + 1
         return result
         
