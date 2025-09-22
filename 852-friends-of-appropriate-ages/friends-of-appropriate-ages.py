@@ -3,7 +3,7 @@ class Solution:
         ages.sort()
         result = 0
         left = right = 0
-        for i, age in enumerate(ages):
+        for age in ages:
             if age < 15:
                 continue
             while ages[left] <= age * 0.5 + 7:
