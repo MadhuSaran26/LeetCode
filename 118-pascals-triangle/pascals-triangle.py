@@ -1,7 +1,6 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
         result = []
-        dp = [1] * numRows
         prev_dp = [1] * numRows
 
         for i in range(numRows):
