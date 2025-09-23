@@ -4,19 +4,14 @@ class Solution:
         s = s.strip()
         negative = False
         result = 0
+        if s and s[0] in {'+','-'}:
+            if s[0] == '-':
+                negative = True
+            s = s[1:]
         for i, char in enumerate(s):
-            if char.isalpha() or char in {'.', ' '} or (i != 0 and char in {'+','-'}):
+            if char.isalpha() or char in {'.', ' ','+','-'}:
                 break
-            if i == 0:
-                if char == "-":
-                    negative = True
-                    continue
-                if char == "+":
-                    continue
-                if char.isdigit():
-                    result += int(char)
-            else:
-                result = result*10 + int(char)
+            result = result*10 + int(char)
 
         if negative:
             result = -result
