@@ -11,11 +11,11 @@ class Node:
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         if not root:
-            return None
+            return root
         
         queue = deque([root, None])
 
-        while len(queue) > 1:
+        while queue:
             node = queue.popleft()
             if not node:
                 if queue:
